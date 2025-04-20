@@ -1,0 +1,55 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <title>Test Page</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 mx-auto" th:object="${user}">
+                <div class="d-flex justify-content-between">
+                    <h3 th:text="'User detail : id = ' + *{id}"></h3>
+                    <a href="/admin/user" class="btn btn-primary">Back to User List</a>
+                </div>
+
+                <hr />
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone Number</th>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Adress</th>
+                        </tr>
+                    </thead>
+                    <form th:action="@{/admin/user/delete}" method="post">
+                        <tbody>
+                            <tr>
+                                <th scope="row" th:text="*{id}">ID</th>
+                                <th scope="row" th:text="*{email}">Email</th>
+                                <th scope="row" th:text="*{phone}">Full Name</th>
+                                <th scope="row" th:text="*{fullName}">Full Name</th>
+                                <th scope="row" th:text="*{address}">Address</th>
+                            </tr>
+                        </tbody>
+                    </form>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
