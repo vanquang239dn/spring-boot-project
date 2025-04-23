@@ -17,18 +17,19 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "users")
-public class User {
+@Table(name = "products")
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long Id;
 
-    private String email;
-    private String password;
-    private String fullName;
-    private String address;
-    private String phone;
-    private String avatar;
-
-    // private roleId;
+    private String name;
+    private double price;
+    private String image;
+    private String detailDesc;
+    private String shortDesc;
+    private String quantity;
+    private String sold;
+    private String factory;
+    private String targer;
 }
