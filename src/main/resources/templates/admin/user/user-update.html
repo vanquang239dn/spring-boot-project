@@ -15,22 +15,24 @@
 
 <body class="sb-nav-fixed">
 
-    <head th:replace="layout/header :: header_fragment"></head>
+    <head th:replace="~{layout/header :: header_fragment}"></head>
     <div id="layoutSidenav">
-        <sidebar th:replace="layout/sidebar :: sidebar_fragment"></sidebar>
+        <sidebar th:replace="~{layout/sidebar :: sidebar_fragment}"></sidebar>
         <div id="layoutSidenav_content">
             <main>
-                <div class="container-fluid px-4">
+                <div class="container-fluid px-4" th:object="${updateUser}">
                     <h1 class="mt-4">User Update</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a th:href="@{/admin/dashboard}">Dashboard</a></li>
                         <li class="breadcrumb-item"><a th:href="@{/admin/user}">User</a></li>
                         <li class="breadcrumb-item active">User Update</li>
                     </ol>
+                    <div class="d-flex justify-content-between">
+                        <h3 th:text="'Update user ID = ' + *{id}"></h3>
+                    </div>
 
                     <hr />
-                    <div class="col-md-6 col-12 mx-auto" th:object="${updateUser}">
-                        <h3 th:text="'User update : id = ' + *{id}"></h3>
+                    <div class="col-md-6 col-12 mx-auto">
                         <form th:action="@{/admin/user/update}" method="post">
                             <div class="mb-3">
                                 <label class="form-label">ID:</label>
@@ -52,12 +54,12 @@
                                 <label class="form-label">Address:</label>
                                 <input type="text" class="form-control" th:field="*{address}">
                             </div>
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" class="btn btn-warning">Update</button>
                         </form>
                     </div>
                 </div>
             </main>
-            <foot th:replace="layout/footer :: footer_fragment"></foot>
+            <foot th:replace="~{layout/footer :: footer_fragment}"></foot>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

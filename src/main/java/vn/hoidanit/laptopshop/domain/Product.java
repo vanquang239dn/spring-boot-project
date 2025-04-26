@@ -31,5 +31,5 @@ public class Product {
     private String quantity;
     private String sold;
     private String factory;
-    private String targer;
+    private String target;
 }

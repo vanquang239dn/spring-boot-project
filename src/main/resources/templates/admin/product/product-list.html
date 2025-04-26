@@ -21,14 +21,14 @@
 
 <body>
 
-    <head th:replace="layout/header :: header_fragment"></head>
+    <head th:replace="~{layout/header :: header_fragment}"></head>
     <div id="layoutSidenav">
-        <sidebar th:replace="layout/sidebar :: sidebar_fragment"></sidebar>
+        <sidebar th:replace="~{layout/sidebar :: sidebar_fragment}"></sidebar>
         <div id="layoutSidenav_content">
             <main>
 
             </main>
-            <foot th:replace="layout/footer :: footer_fragment"></foot>
+            <foot th:replace="~{layout/footer :: footer_fragment}"></foot>
         </div>
     </div>
     </div>
