@@ -21,40 +21,36 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">User Update</h1>
-                    <ol class="breadcrumb mb-4">
+                    <h1 class="mt-4">Manage Users</h1>
+                    <ol class="breadcrumb mb-4">-+
                         <li class="breadcrumb-item"><a th:href="@{/admin/dashboard}">Dashboard</a></li>
                         <li class="breadcrumb-item"><a th:href="@{/admin/user}">User</a></li>
-                        <li class="breadcrumb-item active">User Update</li>
+                        <li class="breadcrumb-item active">Detail</li>
                     </ol>
 
                     <hr />
-                    <div class="col-md-6 col-12 mx-auto" th:object="${updateUser}">
-                        <h3 th:text="'User update : id = ' + *{id}"></h3>
-                        <form th:action="@{/admin/user/update}" method="post">
-                            <div class="mb-3">
-                                <label class="form-label">ID:</label>
-                                <input type="text" class="form-control" th:field="*{id}">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Email address:</label>
-                                <input type="email" class="form-control" th:field="*{email}">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Phone number:</label>
-                                <input type="text" class="form-control" th:field="*{phone}">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Full name:</label>
-                                <input type="text" class="form-control" th:field="*{fullName}">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Address:</label>
-                                <input type="text" class="form-control" th:field="*{address}">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Update</button>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">Full Name</th>
+                                <th scope="col">Adress</th>
+                            </tr>
+                        </thead>
+                        <form th:action="@{/admin/user/detail}" method="post">
+                            <tbody>
+                                <tr>
+                                    <th scope="row" th:text="*{id}">ID</th>
+                                    <th scope="row" th:text="*{email}">Email</th>
+                                    <th scope="row" th:text="*{phone}">Full Name</th>
+                                    <th scope="row" th:text="*{fullName}">Full Name</th>
+                                    <th scope="row" th:text="*{address}">Address</th>
+                                </tr>
+                            </tbody>
                         </form>
-                    </div>
+                    </table>
                 </div>
             </main>
             <foot th:replace="layout/footer :: footer_fragment"></foot>

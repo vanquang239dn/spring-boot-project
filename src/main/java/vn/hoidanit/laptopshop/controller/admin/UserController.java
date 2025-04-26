@@ -1,4 +1,4 @@
-package vn.hoidanit.laptopshop.controller;
+package vn.hoidanit.laptopshop.controller.admin;
 
 import java.util.List;
 
@@ -46,7 +46,7 @@ public class UserController {
     public String getUserViewPage(@PathVariable("id") long id, Model model) {
         User user = userService.handleFindUserById(id);
         model.addAttribute("user", user);
-        return "admin/user/user-view";
+        return "admin/user/user-detail";
     }
 
     @GetMapping("/admin/user/update/{id}")
