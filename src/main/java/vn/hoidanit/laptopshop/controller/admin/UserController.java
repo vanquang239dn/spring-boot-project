@@ -78,6 +78,7 @@ public class UserController {
 
     @PostMapping("/admin/user/update")
     public String postUpdateUser(@ModelAttribute("updateUser") User updateUser, Model model) {
+        updateUser.setRole(roleService.handleFindRoleByRoleName(updateUser.getRole().getName()));
         userService.handleUpdateUser(updateUser);
         // Redirect need a link not a view. Redirect to link, then get that link by GET
         return "redirect:/admin/user";

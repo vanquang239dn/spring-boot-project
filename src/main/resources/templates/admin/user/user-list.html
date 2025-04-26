@@ -1,5 +1,4 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -15,9 +14,9 @@
 
 <body class="sb-nav-fixed">
 
-    <head th:replace="~{layout/header :: header_fragment}"></head>
+    <head th:replace="~{/admin/layout/header :: header_fragment}"></head>
     <div id="layoutSidenav">
-        <sidebar th:replace="~{layout/sidebar :: sidebar_fragment}"></sidebar>
+        <sidebar th:replace="~{/admin/layout/sidebar :: sidebar_fragment}"></sidebar>
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
@@ -38,6 +37,7 @@
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Role</th>
                                 <th scope="col">Full Name</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -46,7 +46,8 @@
                             <tr>
                                 <th scope="row" th:text="*{id}">ID</th>
                                 <th scope="row" th:text="*{email}">Email</th>
-                                <th scope="row" th:text="*{fullName}">Full Name</th>
+                                <th scope="row" th:text="*{role !=null ? role.name : 'No role' }"></th>
+                                <th scope="row" th:text=" *{fullName}">Full Name</th>
                                 <td>
                                     <a th:href="@{/admin/user/{id}(id=*{id})}" class="btn btn-success"
                                         th:text="View"></a>
@@ -60,7 +61,7 @@
                     </table>
                 </div>
             </main>
-            <foot th:replace="~{layout/footer :: footer_fragment}"></foot>
+            <foot th:replace="~{/admin/layout/footer :: footer_fragment}"></foot>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
